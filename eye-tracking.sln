@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "eye-tracking", "eye-tracking\eye-tracking.njsproj", "{BCD0A8F6-D150-4BB2-968E-2A150948932E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCD0A8F6-D150-4BB2-968E-2A150948932E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD0A8F6-D150-4BB2-968E-2A150948932E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD0A8F6-D150-4BB2-968E-2A150948932E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD0A8F6-D150-4BB2-968E-2A150948932E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {920C5425-B8A7-43C2-9B57-1B1CAB948684}
+	EndGlobalSection
+EndGlobal
