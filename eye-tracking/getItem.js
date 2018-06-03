@@ -1,13 +1,24 @@
 const request = require('request');
 const settings = require('./settings');
-//const JSON = require('JSON');
+
+const parseString = require('xml2js').parseString;
 
 const http = require('http');
 const hostname = '127.0.0.1';
 const port = 3000;
 
+// Database
+var dirty = require('dirty');
+var daily = dirty('daily.db');
+
+// Variables
 var id = '253491973014';
 var item;
+var json;
+
+// Date
+//var now1 = new Date(year, month, day);
+//now2 = now1(toString);
 
 const options = {
     url: settings.EBAY_URL,
@@ -25,20 +36,39 @@ const options = {
 };
 
 request(options, function (err, res, body) {
-    //let json = JSON.parse(body);
-    //console.log(json);
-    console.log(body.toString());
-    item = body.toString();
+    //item = body.toString();
+
+    parseString(body, function (err, result) {
+        json = result;
+    });
+    
+    //console.dir(json, { depth: null });
 });
 
 const server = http.createServer((req2, res2) => {
     res2.statusCode = 200;
     res2.setHeader('Content-Type', 'text/plain');
-    res2.write(item);
+    res2.write(json.GetItemResponse.Timestamp.toString());
     res2.end();
 });
 
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+
+daily.on('load', function () {
+    daily.set(id.toString(), { info: 'value' });
+    console.log('Added ' + id.toString() + '- hello:', daily.get(id.toString()).info);
+
+    daily.forEach(function (key, val) {
+        console.log('Found key: %s, val: %j', key, val);
+    });
+});
+
+
+daily.on('drain', function () {
+    console.log('All records are saved on disk now.');
+});
+
 

@@ -30,6 +30,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="getItem.js" />
+    <Compile Include="db-test.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="xml2js_test.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="settings.js">
       <SubType>Code</SubType>
     </Compile>
