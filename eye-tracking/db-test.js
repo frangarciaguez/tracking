@@ -1,4 +1,4 @@
-﻿var dirty = require('dirty');
+var dirty = require('dirty');
 var db = dirty('user.db');
 
 db.on('load', function () {
@@ -6,7 +6,7 @@ db.on('load', function () {
     console.log('Added john, he has %s eyes.', db.get('john').eyes);
 
     db.set('bob', { eyes: 'brown' }, function () {
-        console.log('User bob is now saved on disk.')
+        console.log('User bob is now saved on disk.');
     });
 
     db.forEach(function (key, val) {
