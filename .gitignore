@@ -261,4 +261,6 @@ __pycache__/
 *.pyc
 
 # Files to ignore
-eye-tracking/settings.js
+eye-tracking/settings.js.tags
+.tags_result
+.tags
