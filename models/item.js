@@ -5,10 +5,12 @@ var ItemSchema = Schema({
 	title: String,
 	url: String,
 	info: String,
-	image: String,
+	mainPicture: String,
 	category: String,
 	product: { type: Schema.ObjectId },
-	seller: { type: Schema.ObjectId }
+	seller: { type: Schema.ObjectId },
+	source: String,
+	externalID: String
 });
 
 module.exports = mongoose.model('Item', ItemSchema);

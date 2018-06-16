@@ -7,6 +7,8 @@ var SellerSchema = Schema({
 	address: String,
 	email: String,
 	phone: String,
+	source: String,
+	externalID: String
 });
 
 module.exports = mongoose.model('Seller', SellerSchema);
