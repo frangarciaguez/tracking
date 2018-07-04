@@ -21,12 +21,19 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "connect-multiparty": "^2.1.0",
+    "ebay-node-api": "^2.2.1",
     "express": "^4.16.3",
     "graceful-fs": "^4.1.11",
+    "https": "^1.0.0",
     "jwt-simple": "^0.5.1",
     "moment": "^2.22.2",
     "mongoose": "^5.1.4",
-    "mongoose-pagination": "^1.0.0"
+    "mongoose-pagination": "^1.0.0",
+    "request": "^2.87.0",
+    "xml-js": "^1.6.4",
+    "xml2js": "^0.4.19",
+    "xml2json": "^0.11.2",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"

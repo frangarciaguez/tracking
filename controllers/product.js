@@ -124,7 +124,7 @@ function uploadImage(req,res){
 						res.status(200).send({message:'Error uploading the image. Please try again.'});
 					}
 					else{
-						res.status(200).send({product: productUpdated});
+						res.status(200).send({image: file_name, product: productUpdated});
 					}
 				}
 			});

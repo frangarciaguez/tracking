@@ -1,9 +1,15 @@
 var Item = require('../models/item');
+var mongoosePaginate = require('mongoose-pagination');
+var ebay = require('../services/ebay');
 
 function test(req,res){
-	res.status('200').send({
-		message: 'helloWorld!'
-	});
+	var id = '253491973014';
+	
+	if(!ebay.getItem(id)){
+		res.status(500).send({message:'Error in the request.'});
+	}else{
+		res.status(200).send({message:ebay.getItem(id)});
+	}
 }
 
 function saveItem(req,res){

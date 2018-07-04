@@ -134,7 +134,7 @@ function uploadImage(req,res){
 						res.status(200).send({message:'Error uploading the image. Please try again.'});
 					}
 					else{
-						res.status(200).send({user: userUpdated});
+						res.status(200).send({image: file_name, user: userUpdated});
 					}
 				}
 			});
