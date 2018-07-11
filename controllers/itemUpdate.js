@@ -15,8 +15,10 @@ function saveItemUpdate(req,res){
 	itemUpdate.timestamp = params.timestamp;
 	itemUpdate.quantity = params.quantity;
 	itemUpdate.quantitySold = params.quantitySold;
-	itemUpdate.price = params.price;
-	itemUpdate.allInfo = params.allInfo;
+	itemUpdate.price = {};
+	Object.assign(itemUpdate.price, params.price);
+	itemUpdate.allInfo = {};
+	Object.assign(itemUpdate.allInfo, params.allInfo);
 	itemUpdate.source = params.source;
 	itemUpdate.item = params.item;
 	itemUpdate.product = params.product;
@@ -53,7 +55,7 @@ function getItemUpdate(req,res){
 
 function getItemUpdates(req,res){
 	var page = 1;
-	var itemsPerPage = 3;
+	var itemsPerPage = 10;
 	if(req.params.page){
 		page = req.params.page;
 	}

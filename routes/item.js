@@ -5,10 +5,10 @@ var api = express.Router();
 
 var md_auth = require('../middlewares/authenticated');
 
-api.get('/testItemController', md_auth.ensureAuth, ItemController.test);
+api.get('/testItemController', ItemController.test);
 api.post('/item', md_auth.ensureAuth, ItemController.saveItem);
-api.get('/item/:id', md_auth.ensureAuth, ItemController.getItem);
-api.get('/items/:page?', md_auth.ensureAuth, ItemController.getItems);
+api.get('/item/:id', ItemController.getItem);
+api.get('/items/:page?', ItemController.getItems);
 api.delete('/item/:id', md_auth.ensureAuth, ItemController.deleteItem);
 api.put('/item/:id', md_auth.ensureAuth, ItemController.updateItem);
 

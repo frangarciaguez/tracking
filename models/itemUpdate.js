@@ -5,12 +5,12 @@ var ItemUpdateSchema = Schema({
 	timestamp: String,
 	quantity: String,
 	quantitySold: String,
-	price: String,
-	allInfo: String,
+	price: { type: Object() },
 	item: { type: Schema.ObjectId },
 	product: { type: Schema.ObjectId },
 	seller: { type: Schema.ObjectId },
-	source: String
+	source: String,
+	allInfo: { type: Object() }
 });
 
 module.exports = mongoose.model('ItemUpdate', ItemUpdateSchema);

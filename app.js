@@ -9,6 +9,7 @@ var item_routes = require('./routes/item');
 var itemUpdate_routes = require('./routes/itemUpdate');
 var seller_routes = require('./routes/seller');
 var user_routes = require('./routes/user');
+var ebay_routes = require('./routes/ebay');
 
 //app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -29,5 +30,6 @@ app.use('/api', item_routes);
 app.use('/api', itemUpdate_routes);
 app.use('/api', seller_routes);
 app.use('/api', user_routes);
+app.use('/api', ebay_routes);
 
 module.exports = app;

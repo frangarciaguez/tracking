@@ -23,7 +23,8 @@ var ebayOptions = {
 
 var itemOptions = { 
 	method: 'POST',
-  	url: 'http://localhost:3977/api/item',
+  	//url: 'http://localhost:3977/api/item',
+  	url: 'http://172.31.0.184:8080/api/item',
   	headers: { 
 		'Postman-Token': 'bd837139-b8d2-4219-b69a-1bb78c492dd9',
      	'Cache-Control': 'no-cache',

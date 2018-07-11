@@ -1,15 +1,9 @@
 var Item = require('../models/item');
+var ItemUpdate = require('../models/itemUpdate');
 var mongoosePaginate = require('mongoose-pagination');
-var ebay = require('../services/ebay');
 
 function test(req,res){
-	var id = '253491973014';
-	
-	if(!ebay.getItem(id)){
-		res.status(500).send({message:'Error in the request.'});
-	}else{
-		res.status(200).send({message:ebay.getItem(id)});
-	}
+		res.status(200).send('hellowonderfulworld!');
 }
 
 function saveItem(req,res){
@@ -20,7 +14,9 @@ function saveItem(req,res){
 	item.url = params.url;
 	item.mainPicture = 'null';
 	item.category = params.category;
-	item.allInfo = params.allInfo;
+	item.allInfo = {};
+	Object.assign(item.allInfo, params.allInfo);
+	//item.allInfo = params.allInfo;
 	item.product = params.product;
 	item.seller = params.seller;
 	item.source = params.source;
@@ -57,7 +53,7 @@ function getItem(req,res){
 
 function getItems(req,res){
 	var page = 1;
-	var itemsPerPage = 3;
+	var itemsPerPage = 10;
 	if(req.params.page){
 		page = req.params.page;
 	}
@@ -88,7 +84,18 @@ function deleteItem(req,res){
 			if(!removedItem){
 				res.status(404).send({message:"The item could not be removed."});
 			}else{
-				res.status(200).send({removedItem});
+				ItemUpdate.find({item: itemId}).remove((err,removedItemUpdate)=>{
+					if(err){
+						res.status(500).send({message:"Error deleting the itemUpdate."});
+					}else{
+						if(!removedItemUpdate){
+							res.status(404).send({message:"The itemUpdate has not been deleted."});
+						}else{
+							res.status(200).send({item: removedItem});
+						}
+					}
+				});
+				//res.status(200).send({removedItem});
 			}
 		}
 	});
